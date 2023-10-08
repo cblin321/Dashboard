@@ -47,7 +47,7 @@ body {
     row-gap: 20px;
     width: min(300px, 20%);
     height: 100vh;
-    margin-left: min(10px, 1%);
+    margin-left: min(10px, 1vw);
     background-color: var(--accent);
     margin: 0;
     padding: 0 10px 0 20px;
@@ -80,9 +80,10 @@ body {
     grid-column: -2;
     display: flex;
     flex-direction: column;
-    height: 100%;
-    width: min(20vw, 300px);
-    margin-left: min(20px, 5vw);
+    height: 80px;
+    width: min(18vw, 230px);
+    font-size: .2rem;
+    /* margin-left: min(20px, 5vw); */
 }
 
 .announcements .header {
@@ -128,7 +129,7 @@ h1 {
     align-content: center;
     grid-template-columns: minmax(750px, 1fr) minmax(150px, 0.25fr) minmax(150px, 0.25fr);
     gap: 40px;
-    margin-left: 40px;
+    margin-left: min(40px, 1vw);
     background-color: #f0f4f5;
     box-sizing: content-box;
     padding-right: 50px;
@@ -136,20 +137,21 @@ h1 {
 
 .right::before {
     position: absolute;
-    width: 40px;
     height: min(calc(100% - 120px), 84%);
     display: block;
-    background-color: #f0f4f5   ;
-    left: -40px;
+    background-color: #f0f4f5; 
+    /* background-color: orange;  */
+    left: calc(-1 * min(40px, 1vw));
+    width: min(40px, 1vw);
     content: "";
     top: min(150px, 30%);
 }
 
 .trending {
     grid-column: -2;
-    height: 100%;
-    width: min(20vw, 300px);
-    margin-left: min(20px, 5vw);
+    height: 90%;
+    width: min(18vw, 240px);
+    /* margin-left: min(80px, 10vw); */
     grid-row: 3;
 }
 
@@ -186,7 +188,7 @@ h1 {
     display: flex;
     gap: 30px;
     align-items: center;
-    margin-left: min(800px, 50%);
+    margin-left: clamp(300px, 40vw, 50vw);
 }
 
 .user-text p {
@@ -221,9 +223,11 @@ h1 {
     display: block;
     content: "";
     background-color: white;
-    left: -40px;
+    /* background-color: orange; */
+    left: calc(min(40px, 1vw) * -1);
     position: absolute;
-    width: 40px;
+    /* margin-left: min(40px, 2%); */
+    width: calc(min(40px, 1vw));
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 10px -10px;
 }
 
@@ -273,7 +277,8 @@ h1 {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-left: min(320px, 55%);
+    margin-left: min(40px, 4vw);
+    /* margin-left: clamp(100px, 1vw,  20vw); */
 }
 
 .user p {
@@ -281,7 +286,7 @@ h1 {
 }
 
 .searchbar {
-    width: 50%;
+    width: 70%;
 }
 
 .side-task {
@@ -311,6 +316,9 @@ h1 {
     margin-top: min(170px, 20%);
     /* min(150px, 30%) */
     height: min(calc(100vh-170px), calc(100vh - 20%)) !important;
+    align-items: space-evenly;
+    column-gap: min(65px, 8vw);
+    /* justify-content: center; */
 }
 
 .desc-container p {
@@ -420,6 +428,12 @@ input {
     padding: 0 .5rem 0 .5rem;
 }
 
-/* @media (max-width: ) {
+@media (max-width: 1400px) {
+    .sidebar {
+        font-size: calc(0.625rem + 0.2vw);
+    }
 
-} */
+    .actions {
+        margin-left: clamp(px, 60%, 520px);
+    }
+}
